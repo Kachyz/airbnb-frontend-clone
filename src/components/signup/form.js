@@ -2,18 +2,75 @@ import React, {Component} from 'react'
 import Card from '@material-ui/core/Card'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
 
 class SignupForm extends Component {
+
+  state = { // Esta es la forma de hacerlo para versiones mas nuevas de Node, si no debe estar dentro del constructor
+    email: "",
+    name: "",
+    lastName: "",
+    password: "",
+    date: ""
+  }
+
+  handleField = (event) => {
+    // console.log(event.target)
+    const key = event.target.id
+    this.setState({
+      [key]: event.target.value
+    })
+  }
+
+  handleClick = (event) => {
+    event.preventDefault()
+    const url = "http://localhost:3000/users/signup"
+    axios.post(url, 
+      {
+        user: this.state
+      })
+      .then( response => {
+        console.log(response)
+      })
+      .catch( error => {
+        console.log("Error:", error)  
+      })
+  }
+  
+
   render() {
     return (
       <Card>
         Formulario de registro
-        <TextField />
-        <TextField />
-        <TextField />
-        <TextField />
-        <TextField type="date"/>
-        <Button variant="contained" color="secondary" >
+        <TextField 
+          id ="email"
+          value = {this.state.email}
+          onChange = {this.handleField}
+        />
+        <TextField 
+          id ="name"
+          value = {this.state.name}
+          onChange = {this.handleField}
+        />
+        <TextField 
+          id ="lastName"
+          value = {this.state.lastName}
+          onChange = {this.handleField}
+        />
+        <TextField 
+          id ="password"
+          value = {this.state.password}
+          onChange = {this.handleField}
+        />
+        <TextField 
+          id = "date"
+          type="date"
+          value = {this.state.date}
+          onChange = {this.handleField}
+        />
+        <Button variant="contained" color="secondary" 
+          onClick={this.handleClick}
+        >
           Registrarse
         </Button>
       </Card>
