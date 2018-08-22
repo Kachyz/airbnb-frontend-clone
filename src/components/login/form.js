@@ -4,14 +4,11 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
 
-class SignupForm extends Component {
+class LoginForm extends Component {
 
-  state = { // Esta es la forma de hacerlo para versiones mas nuevas de Node, si no debe estar dentro del constructor
+  state = { 
     email: "",
-    name: "",
-    lastName: "",
     password: "",
-    date: ""
   }
 
   handleField = (event) => {
@@ -19,11 +16,13 @@ class SignupForm extends Component {
     this.setState({
       [key]: event.target.value
     })
+    console.log(this.state);
   }
 
   handleClick = (event) => {
     event.preventDefault()
-    const url = "http://localhost:3000/users/signup"
+    const url = "http://localhost:3000/users/login"
+  console.log('front', this.state);
     axios.post(url, 
       {
         user: this.state
@@ -41,45 +40,25 @@ class SignupForm extends Component {
   render() {
     return (
       <Card>
-        Formulario de registro
+        Formulario de Login
         <TextField 
           id ="email"
           value = {this.state.email}
-          placeholder = "Email"
-          onChange = {this.handleField}
-        />
-        <TextField 
-          id ="name"
-          value = {this.state.name}
-          placeholder = "Name"
-          onChange = {this.handleField}
-        />
-        <TextField 
-          id ="lastName"
-          value = {this.state.lastName}
-          placeholder = "LastName"
           onChange = {this.handleField}
         />
         <TextField 
           id ="password"
           value = {this.state.password}
-          placeholder = "Password"
-          onChange = {this.handleField}
-        />
-        <TextField 
-          id = "date"
-          type="date"
-          value = {this.state.date}
           onChange = {this.handleField}
         />
         <Button variant="contained" color="secondary" 
           onClick={this.handleClick}
         >
-          Registrarse
+          Login
         </Button>
       </Card>
     )
   }
 }
 
-export default SignupForm
+export default LoginForm
