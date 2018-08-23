@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SearchFrom page correctly 1`] = `
+<div>
+  <TextField
+    id="search"
+    onChange={[Function]}
+    required={false}
+    select={false}
+    value="42"
+  />
+  <WithStyles(Button)
+    color="secondary"
+    onClick={[Function]}
+    variant="contained"
+  >
+    Search
+  </WithStyles(Button)>
+</div>
+`;

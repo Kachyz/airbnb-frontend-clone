@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SignupForm page correctly 1`] = `
+<WithStyles(Card)>
+  Formulario de registro
+  <TextField
+    id="email"
+    onChange={[Function]}
+    placeholder="Email"
+    required={false}
+    select={false}
+    value="xxx"
+  />
+  <TextField
+    id="name"
+    onChange={[Function]}
+    placeholder="Name"
+    required={false}
+    select={false}
+    value=""
+  />
+  <TextField
+    id="lastName"
+    onChange={[Function]}
+    placeholder="LastName"
+    required={false}
+    select={false}
+    value=""
+  />
+  <TextField
+    id="password"
+    onChange={[Function]}
+    placeholder="Password"
+    required={false}
+    select={false}
+    value=""
+  />
+  <TextField
+    id="date"
+    onChange={[Function]}
+    required={false}
+    select={false}
+    type="date"
+    value=""
+  />
+  <WithStyles(Button)
+    color="secondary"
+    onClick={[Function]}
+    variant="contained"
+  >
+    Registrarse
+  </WithStyles(Button)>
+</WithStyles(Card)>
+`;
